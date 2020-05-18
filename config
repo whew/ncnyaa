@@ -14,7 +14,7 @@ download=no
 #   $URL = remote url
 #   $FILE = local torrent (if any)
 #cmd=xdg-open $FILE
-cmd=transmission-remote -a $URL
+cmd=transmission-remote -a $(sed 's/nyaa.si/nyaa.iss.one/' <<< $URL)
 
 # Default category number
 category=3
