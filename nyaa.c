@@ -54,15 +54,15 @@ parse_nyaa(struct TorrentList * torrent_list, struct Search * search)
 
     if (search->category >= 0 && search->category < nyaa_categories_size)
         snprintf(url, sizeof(url),
-            "https://%s.nyaa.si/?page=rss&c=%s&s=%s&o=%s&q=%s",
-            (nyaa_categories[search->category].sukebe) ? "sukebei" : "www",
+            "https://%s.iss.one/?page=rss&c=%s&s=%s&o=%s&q=%s",
+            (nyaa_categories[search->category].sukebe) ? "sukebei" : "nyaa",
             nyaa_categories[search->category].id,
             nyaa_sorts[search->sort],
             nyaa_orders[search->order],
             url_encode(search->term));
     else
         snprintf(url, sizeof(url),
-            "https://www.nyaa.si/?page=rss&q=%s",
+            "https://nyaa.iss.one/?page=rss&q=%s",
             url_encode(search->term));
     
     struct MemoryChunk * mem = download_to_mem(url);
